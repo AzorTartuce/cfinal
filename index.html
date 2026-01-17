@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .capital {
+            font-size: 120px;
+            font-weight: bold;
+            color: var(--capital-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="capital" id="capital">R$ 0,00</div>
+
+    <script>
+        // ============================================
+        // CONFIGURE AQUI O VALOR E A COR
+        // ============================================
+        
+        // Valor do capital (mude aqui)
+        const valorCapital = -320;
+        
+        // Cor: 'verde' ou 'vermelho' (mude aqui)
+        const cor = 'vermelho'; // ou 'vermelho'
+        
+        // ============================================
+
+        const capitalElement = document.getElementById('capital');
+        
+        // Formata o valor como moeda brasileira
+        const valorFormatado = valorCapital.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+        
+        // Define a cor
+        const cores = {
+            verde: '#00FF00',
+            vermelho: '#FF0000'
+        };
+        
+        document.documentElement.style.setProperty('--capital-color', cores[cor] || cores.verde);
+        capitalElement.textContent = valorFormatado;
+    </script>
+</body>
+</html>
